@@ -76,9 +76,13 @@ be accompanied by a Makefile, README, and checklist
 
 ### main函数传参
 我们不再使用初学者常用的
+
 `int main(void)`
+
 而是使用
+
 `int main(int argc, char *argv[])`
+
 
 这有什么用呢？
 
