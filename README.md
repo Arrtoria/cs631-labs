@@ -83,7 +83,9 @@ be accompanied by a Makefile, README, and checklist
 这有什么用呢？
 
 考虑你在shell里输入的一个指令
+
 `-> xiongzile: ~/workspace/AUPC/cs631/File_IO_Sharing/HW1  sleep 10`
+
 你会看到命令行停顿了数秒，所以我们就不难理解为什么有的程序需要传入参数。如果没有传参的话，我们想要使用`sleep`这个命令，我们怎么能知道具体要sleep多久呢？
 
 而在这个举例里面,argc = 2, argv = ["sleep", "10"],所以大家能理解argc和argv的含义了吧。其实这两个变量名都是可以改的，你要把他们取名为a和b也可以，但约定俗成之下都是argc 和 argv。
