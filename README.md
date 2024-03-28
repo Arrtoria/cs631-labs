@@ -1,8 +1,11 @@
 # CS631-HW1：bare-bones copyafile（Solution）
 
 **作者：** withm
+
 **日期：** 2024年3月28日
+
 **适合读者：** 本文面向没有任何Unix编程经验但对C和linux操作有一定了解的读者
+
 ## 作业介绍
 请大家浏览 [CS631 HW1 - Unix系统编程](https://stevens.netmeister.org/631/f23-hw1.html)
 （这可能是你RTFM的第一步？）
