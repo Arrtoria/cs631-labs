@@ -170,21 +170,21 @@ int main() {
 
 ### 读文件
 ```C
-    int fd1;
-    if ((fd1 = open(argv[1], O_RDONLY)) < 0) {
-        perror("open file1: error");
-        exit(EXIT_FAILURE);
-    }
-    struct stat fd1_st;
-    if (fstat(fd1, &fd1_st) < 0) {
-        perror("fstat file1: error\n");
-        exit(EXIT_FAILURE);
-    }
+int fd1;
+if ((fd1 = open(argv[1], O_RDONLY)) < 0) {
+    perror("open file1: error");
+    exit(EXIT_FAILURE);
+}
+struct stat fd1_st;
+if (fstat(fd1, &fd1_st) < 0) {
+    perror("fstat file1: error\n");
+    exit(EXIT_FAILURE);
+}
 
-    if ((fd1_st.st_mode & S_IFMT) == S_IFDIR) {
-        perror("file1 is a directory\n");
-        exit(EXIT_FAILURE);
-    }
+if ((fd1_st.st_mode & S_IFMT) == S_IFDIR) {
+    perror("file1 is a directory\n");
+    exit(EXIT_FAILURE);
+}
 ```
 这里请让我详细的介绍一下这段代码里提到的`库函数`，`系统调用`以及`结构体`
 库函数包括：`perror()` `exit()` 
@@ -225,10 +225,10 @@ int open(const char *pathname, int flags, mode_t mode);
 这意味着接下来需要做的事情都是对open的返回值做的。（是不是很奇妙很简单？）
 ```C
 int fd1;
-    if ((fd1 = open(argv[1], O_RDONLY)) < 0) {
-        perror("open file1: error");
-        exit(EXIT_FAILURE);
-    }
+if ((fd1 = open(argv[1], O_RDONLY)) < 0) {
+    perror("open file1: error");
+    exit(EXIT_FAILURE);
+}
 ```
 接下来你就可以把fd1看着一个文件了，而他本质是一个整数。
 #### `fstat()`
@@ -243,11 +243,11 @@ int fstat(int fd, struct stat *buf);
 
 看到这个`fd`没有，没错，这就对应我们刚才`open`得到的`文件描述符`，我们只需要用着这个就能所引导真正的文件。而`fstat`可以把文件的相关信息存储到`struct stat`结构体里。
 ```C
-    struct stat fd1_st;
-    if (fstat(fd1, &fd1_st) < 0) {
-        perror("fstat file1: error\n");
-        exit(EXIT_FAILURE);
-    }
+struct stat fd1_st;
+if (fstat(fd1, &fd1_st) < 0) {
+    perror("fstat file1: error\n");
+    exit(EXIT_FAILURE);
+}
 ```
 如果返回值小于0意味着这个系统调用发生了错误，我们就要直接退出程序啦，这里是一个简单的错误处理。
 
